@@ -11,7 +11,16 @@ class MyApp implements DataConnection {
     public MyApp(String y) {
         this.y = y;
     }
-    private String y = "";
+
+    public String getY(){
+            return this.y;
+    }
+
+    public void setY(String y){
+            this.y = y;
+    }
+    
+    private String y;
     private static int COUNT = 0;
     private static int COUNT1 = 0;
     protected static int startYear = 1990;
