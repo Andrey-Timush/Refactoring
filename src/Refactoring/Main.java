@@ -1,9 +1,6 @@
-import java.io.*;
+package Refactoring;
 
-interface DataConnection {
-    int loadDatas(int sum) throws Exception;
-    void saveData(int year, int qq) throws IOException;
-}
+import java.io.*;
 
 class MyApp implements DataConnection {
 
