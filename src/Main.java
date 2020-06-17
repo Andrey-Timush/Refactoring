@@ -29,6 +29,7 @@ class MyApp implements DataConnection {
                 int sum = 0;
                 String y = i + "";
                 sum =  create(y).loadDatas(sum);
+//                System.out.println("sum = "+sum);
                 double qq = sum > 0 ? (double) sum / (double) COUNT : 0;
                 if (qq > 0) {
                     System.out.println(i + " " + qq);
@@ -45,20 +46,24 @@ class MyApp implements DataConnection {
 //try {
 //FileOutputStream fis = new FileOutputStream(file);
         FileInputStream fis = new FileInputStream("1.txt");
-        StringBuilder s = new StringBuilder();
-        int i = fis.read();
+        StringBuilder string = new StringBuilder();
+        int endOfString = fis.read();
         do {
-            s.append(new String(new byte[]{(byte) i}));
-            i = fis.read();
-        } while (i != -1);
+            string.append(new String(new byte[]{(byte) endOfString}));
+            endOfString = fis.read();
+        } while (endOfString != -1);
+
         int begin = 0;
+
         while (true) {
-            int e = s.indexOf("\n", begin + 1);
-            if (e == -1) {
+            int indexEndOfString = string.indexOf("\n", begin + 1);
+
+            if (indexEndOfString == -1) {
                 break;
             }
-            String ss = s.substring(begin, e);
-            System.out.println("ss="+ss);
+
+            String ss = string.substring(begin, indexEndOfString);
+
             String[] sss = ss.split(" ");
 //            for (String string : sss) {
 //                System.out.println("asd = "+string);
@@ -67,7 +72,7 @@ class MyApp implements DataConnection {
                 sum = sum + Integer.parseInt(sss[3]);
             }
             COUNT++;
-            begin = e;
+            begin = indexEndOfString;
         }
         return sum;
     }
