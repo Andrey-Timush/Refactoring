@@ -69,14 +69,14 @@ class MyApp implements DataConnection {
                 break;
             }
 
-            String ss = string.substring(begin, indexEndOfString);
+            String string2 = string.substring(begin, indexEndOfString);
 
-            String[] sss = ss.split(" ");
+            String[] string3 = string2.split(" ");
 //            for (String string : sss) {
 //                System.out.println("asd = "+string);
 //            }
-            if (sss[2].contains(getY()) /*|| sss[2].contains(y)*/) {
-                sum = sum + Integer.parseInt(sss[3]);
+            if (string3[2].contains(getY()) /*|| sss[2].contains(y)*/) {
+                sum = sum + Integer.parseInt(string3[3]);
             }
             COUNT++;
             begin = indexEndOfString;
