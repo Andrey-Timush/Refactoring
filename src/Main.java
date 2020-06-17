@@ -75,7 +75,7 @@ class MyApp implements DataConnection {
             for (String string : sss) {
 //System.out.println(string);
             }
-            if (sss[2].contains(this.y) || sss[2].contains(y)) {
+            if (sss[2].contains(this.y) /*|| sss[2].contains(y)*/) {
                 sum = sum + Integer.parseInt(sss[3]);
             }
 
@@ -86,7 +86,7 @@ class MyApp implements DataConnection {
     }
     public void saveData(int year, int qq) throws IOException {
         FileOutputStream fis = new FileOutputStream("statistika.txt", true);
-        String s = new String();
+        String s;
         s = COUNT1 + " " + year + " " + qq + "\n";
         fis.write(s.getBytes());
         COUNT1++;
