@@ -1,5 +1,9 @@
-#out folder
+# folders
 out/
+.git/
 
 # txt-files 
 *.txt
+
+# files iml
+*.iml
