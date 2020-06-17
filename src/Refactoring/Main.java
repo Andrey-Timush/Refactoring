@@ -3,24 +3,24 @@ package Refactoring;
 import java.io.*;
 
 class MyApp implements DataConnection {
-
-        public static MyApp create(String y) {
-            return new MyApp(y);
-        }
+    public static MyApp create(String y) {
+        return new MyApp(y);
+    }
 
     public MyApp(String y) {
-        this.y = y;
+        setY(y);
+//      this.y = y;
     }
 
     public String getY(){
-            return this.y;
+            return y;
     }
 
     public void setY(String y){
-            this.y = y;
+            MyApp.y = y;
     }
-    
-    private String y;
+
+    private static String y;
     private static int COUNT = 0;
     private static int COUNT1 = 0;
     protected static int startYear = 1990;
@@ -28,12 +28,13 @@ class MyApp implements DataConnection {
     /**
      * @param args
      */
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         try {
             System.out.println("app v.1.13");
             for (int i = startYear; i < endYear; i++) {
                 int sum = 0;
-                String y = i + "";
+                MyApp myApp = new MyApp("");
+                myApp.setY(i + " ");
                 sum =  create(y).loadDatas(sum);
 //                System.out.println("sum = "+sum);
                 double qq = sum > 0 ? (double) sum / (double) COUNT : 0;
@@ -74,7 +75,7 @@ class MyApp implements DataConnection {
 //            for (String string : sss) {
 //                System.out.println("asd = "+string);
 //            }
-            if (sss[2].contains(this.y) /*|| sss[2].contains(y)*/) {
+            if (sss[2].contains(getY()) /*|| sss[2].contains(y)*/) {
                 sum = sum + Integer.parseInt(sss[3]);
             }
             COUNT++;
